@@ -16,13 +16,9 @@
     </p>
 
     <Grid wrap={true}>
-      <wa-button variant="brand" href="https://github.com" target="_blank">
-        <wa-icon slot="prefix" name="star" variant="solid"></wa-icon>
+      <wa-button variant="brand" href="https://github.com/esaramago/base-stack" target="_blank">
+        <wa-icon slot="start" name="star" variant="solid"></wa-icon>
         Ver no GitHub
-      </wa-button>
-      <wa-button variant="neutral" appearance="outlined" href="/docs">
-        <wa-icon slot="prefix" name="book-open" variant="solid"></wa-icon>
-        Documentação
       </wa-button>
     </Grid>
   </Grid>
@@ -31,7 +27,7 @@
     <h2>Stack Tecnológica</h2>
 
     <Grid wrap={true} break="small">
-      <wa-card data-grow="1">
+      <wa-card>
         <Grid direction="column" gap="s">
           <Grid align="center" gap="s">
             <wa-icon name="bolt" variant="solid"></wa-icon>
@@ -41,7 +37,7 @@
         </Grid>
       </wa-card>
 
-      <wa-card data-grow="1">
+      <wa-card>
         <Grid direction="column" gap="s">
           <Grid align="center" gap="s">
             <wa-icon name="database" variant="solid"></wa-icon>
@@ -51,7 +47,7 @@
         </Grid>
       </wa-card>
 
-      <wa-card data-grow="1">
+      <wa-card>
         <Grid direction="column" gap="s">
           <Grid align="center" gap="s">
             <wa-icon name="palette" variant="solid"></wa-icon>
@@ -61,13 +57,43 @@
         </Grid>
       </wa-card>
 
-      <wa-card data-grow="1">
+      <wa-card>
         <Grid direction="column" gap="s">
           <Grid align="center" gap="s">
-            <wa-icon name="docker" variant="brand"></wa-icon>
+            <wa-icon name="docker" family="brands"></wa-icon>
             <strong>Docker & Coolify</strong>
           </Grid>
           <p>Pronto para containerização com Dockerfile multi-stage e deploy direto no Coolify.</p>
+        </Grid>
+      </wa-card>
+
+      <wa-card>
+        <Grid direction="column" gap="s">
+          <Grid align="center" gap="s">
+            <wa-icon name="code"></wa-icon>
+            <strong>Prettier</strong>
+          </Grid>
+          <p>Formatação de código com base em Prettier.</p>
+        </Grid>
+      </wa-card>
+
+      <wa-card>
+        <Grid direction="column" gap="s">
+          <Grid align="center" gap="s">
+            <wa-icon name="robot"></wa-icon>
+            <strong>Agents.md</strong>
+          </Grid>
+          <p>Documentação de comandos para uso com Docker e Coolify.</p>
+        </Grid>
+      </wa-card>
+
+      <wa-card>
+        <Grid direction="column" gap="s">
+          <Grid align="center" gap="s">
+            <wa-icon name="robot"></wa-icon>
+            <strong>Grid component</strong>
+          </Grid>
+          <p>Componente de grid para estruturação de layout.</p>
         </Grid>
       </wa-card>
     </Grid>

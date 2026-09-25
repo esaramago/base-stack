@@ -1,16 +1,15 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import '@/css/main.css'
   import '@awesome.me/webawesome/dist/styles/webawesome.css'
+  import '@awesome.me/webawesome/dist/components/badge/badge.js'
+  import '@awesome.me/webawesome/dist/components/button/button.js'
+  import '@awesome.me/webawesome/dist/components/card/card.js'
+  import '@awesome.me/webawesome/dist/components/icon/icon.js'
   import Header from '@/components/Header.svelte'
   import Footer from '@/components/Footer.svelte'
   import Grid from '@/components/Grid.svelte'
 
   let { children } = $props()
-
-  onMount(async () => {
-    await import('@awesome.me/webawesome')
-  })
 </script>
 
 <Grid direction="column" gap="2xl">
