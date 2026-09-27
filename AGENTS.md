@@ -10,8 +10,8 @@ When creating a new project, I will reference this repository as the base.
 - The Header and Footer are separate components.
 - Do not use redundant attributes. Example: `<Grid gap="m" />`
 - Code comments must be in English.
-- README.md must be in English.
-- AGENTS.md must be in English.
+- README.md and AGENTS.md must be in English.
+- Do not commit any changes.
 
 ## Checklist when starting a new project
 - [ ] Ensure package dependencies are on their latest versions.
