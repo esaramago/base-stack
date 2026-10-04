@@ -4,6 +4,7 @@ When creating a new project, I will reference this repository as the base.
 
 ## Rules
 - No Tailwind or other CSS frameworks.
+- Do not add inline styles.
 - Use the Grid.svelte component whenever possible to structure layout.
 - Use WebAwesome for elements whenever possible.
 - Do not write CSS or add unnecessary classes. I will write whatever CSS is needed.
