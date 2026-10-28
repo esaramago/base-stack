@@ -11,7 +11,8 @@ When creating a new project, I will reference this repository as the base.
 - Do not use redundant attributes. Example: `<Grid gap="m" />`
 - Code comments must be in English.
 - README.md and AGENTS.md must be in English.
-- Do not commit any changes.
+- Do not commit any changes. I'll do it.
+- Avoid repeating code. Create reusable functions and components when it makes sense.
 
 ## Checklist when starting a new project
 - [ ] Ensure package dependencies are on their latest versions.
