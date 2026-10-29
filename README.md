@@ -1,102 +1,52 @@
 # Base Stack
 
-Base template repository for scaffolding and launching new projects.
-
-## 🚀 Stack
-
-- **Package Manager:** [PNPM](https://pnpm.io/)
-- **Frontend / Framework:** [SvelteKit](https://kit.svelte.dev/)
-- **Backend / Database:** [PocketBase](https://pocketbase.io/)
-- **UI Components:** [WebAwesome](https://webawesome.com/)
-- **Containerization:** [Docker](https://www.docker.com/) & Docker Compose
-- **Hosting / Deployment:** Ready for [Coolify](https://coolify.io/)
+A modern, opinionated full-stack starter template designed for rapidly scaffolding and deploying production-ready web applications.
 
 ---
 
-## 📐 Guidelines & Conventions
+## 🎯 Overview
 
-1. **No Tailwind:** This project does not use Tailwind CSS.
-2. **Layout with `Grid.svelte`:** Use the `Grid.svelte` component (`@/components/Grid.svelte`) whenever possible to structure layouts and element alignment.
-3. **Elements with WebAwesome:** Use WebAwesome web components (`<wa-...>`) for buttons, icons, cards, inputs, and other interface elements.
-4. **Minimal CSS:** Do not add CSS rules or classes unnecessarily. Keep styles clean and let components handle structure.
-5. **No Redundant Attributes:** Do not specify default prop values (e.g. avoid `<Grid gap="m" />` since `m` is default).
-6. **Separate Header & Footer:** Header and Footer are separate, reusable components.
+**Base Stack** provides a solid, pre-configured foundation that eliminates repetitive project setup. It combines the speed and simplicity of **SvelteKit 2** (with Svelte 5) on the frontend with **PocketBase** as a lightweight, all-in-one backend (database, authentication, file storage, and realtime subscriptions). The UI layer is powered by **WebAwesome** web components and a zero-framework modular CSS architecture centered around a flexible `Grid` layout component.
+
+The entire stack is containerized with Docker and ready for seamless deployment on **Coolify** or any Docker-compatible hosting platform.
 
 ---
 
-## 📁 Project Structure
+## ✨ Key Features
 
-```text
-.
-├── docker-compose.yml       # Local / Coolify orchestration (SvelteKit + PocketBase)
-├── Dockerfile               # Multi-stage build optimized for production
-├── src/
-│   ├── app.d.ts             # Global typings and PocketBase session types
-│   ├── app.html             # Base HTML template
-│   ├── hooks.server.ts      # PocketBase auth hook and session management
-│   ├── components/
-│   │   ├── Grid.svelte      # Base layout and flex alignment component
-│   │   ├── Header.svelte    # Application header component
-│   │   └── Footer.svelte    # Application footer component
-│   ├── css/
-│   │   ├── main.css         # Main CSS entry point
-│   │   ├── base/            # Reset and WebAwesome theme variables
-│   │   └── layout/          # Containers and layout utilities
-│   ├── lib/
-│   │   └── pocketbase.ts    # PocketBase client instance and user store
-│   ├── routes/
-│   │   ├── +layout.svelte   # Root layout (Header, Grid, Footer, global styles)
-│   │   └── +page.svelte     # Starter home page
-│   └── types/
-│       └── grid.ts          # Types and props for Grid.svelte
-├── AGENTS.md                # Agent instructions and checklist
-└── LICENSE                  # MIT License
-```
+- **⚡ Modern Frontend:** Built with [SvelteKit 2](https://kit.svelte.dev/) and [Svelte 5](https://svelte.dev/) leveraging runes and reactive primitives.
+- **🗄️ Integrated Backend:** [PocketBase](https://pocketbase.io/) embedded SQLite database, built-in authentication, realtime events, and an intuitive Admin UI.
+- **🔐 SSR Session Sync:** Pre-configured SvelteKit server hooks (`hooks.server.ts`) for synchronized cookie-based authentication between client and server.
+- **🎨 Design System & Web Components:** Styled with [WebAwesome](https://webawesome.com/) accessible web components and design tokens.
+- **📐 Layout System:** Purpose-built, lightweight `Grid.svelte` component for structured, responsive layouts without heavy CSS frameworks like Tailwind.
+- **🐳 Production Ready:** Multi-stage `Dockerfile` and `docker-compose.yml` pre-configured for local development and one-click deployment on [Coolify](https://coolify.io/).
+- **🛠️ Type Safety & Tooling:** Full [TypeScript](https://www.typescriptlang.org/) support, [Vite](https://vitejs.dev/), and strict checking with `svelte-check`.
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Tech Stack
 
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v20+ or v24+)
-- [PNPM](https://pnpm.io/) (`corepack enable && corepack prepare pnpm@latest --activate`)
-- [Docker](https://www.docker.com/) (optional, for running with PocketBase)
-
-### Install Dependencies
-
-```bash
-pnpm install
-```
-
-### Local Development
-
-1. Copy environment variables:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Start the development server (PocketBase will automatically start in the background):
-   ```bash
-   pnpm dev
-   ```
-
-   - **Frontend:** `http://localhost:5173`
-   - **PocketBase Admin UI:** `http://localhost:8090/_/`
+| Layer | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | [SvelteKit 2](https://kit.svelte.dev/) / [Svelte 5](https://svelte.dev/) | Full-stack application framework with SSR |
+| **Backend / DB** | [PocketBase](https://pocketbase.io/) | SQLite backend with Auth, Realtime & Admin dashboard |
+| **UI Components** | [WebAwesome](https://webawesome.com/) | Standardized, accessible Web Components |
+| **Styling** | Vanilla CSS Architecture | Modular CSS tokens, reset, elements, and layout utilities |
+| **Package Manager** | [PNPM](https://pnpm.io/) | Fast, disk space-efficient package manager |
+| **Containerization** | [Docker](https://www.docker.com/) & Docker Compose | Multi-stage image build and service orchestration |
+| **Deployment** | [Coolify](https://coolify.io/) | Self-hosted PaaS deployment target |
 
 ---
 
-## 🐳 Docker & Coolify
+## 📖 Development & Getting Started
 
-The project is pre-configured for deployment on **Coolify** using Dockerfile or Docker Compose:
+Looking to run this project locally, understand the coding conventions, or prepare a deployment?
 
-### Production with Docker Compose:
-```bash
-docker compose up -d --build
-```
-
-- **SvelteKit App:** Port `3000`
-- **PocketBase:** Port `8090` (persisted via `pb_data` volume)
+👉 Check out the [Development Guide (DEVELOPMENT.md)](DEVELOPMENT.md) for:
+- Environment setup and prerequisites
+- Running PocketBase and the local dev server
+- Layout system (`Grid.svelte`) usage and UI guidelines
+- Docker and Coolify deployment instructions
 
 ---
 
