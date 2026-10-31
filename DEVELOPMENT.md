@@ -43,7 +43,7 @@ Run the development command:
 pnpm dev
 ```
 
-> **Note:** The `pnpm dev` script automatically starts the PocketBase Docker container in the background (`docker compose up -d pocketbase`) before starting Vite.
+> **Note:** The `pnpm dev` script automatically starts the PocketBase Docker container in the background (`docker compose up -d pocketbase`) before starting Vite. SvelteKit logs are shown directly in the terminal, while PocketBase logs can be followed on demand using `pnpm logs`.
 
 Once started, the following services are available:
 
@@ -60,6 +60,7 @@ When accessing the PocketBase Admin UI for the first time, you will be prompted 
 | Command | Description |
 | :--- | :--- |
 | `pnpm dev` | Starts PocketBase via Docker and launches the Vite dev server with HMR |
+| `pnpm logs` | Follows PocketBase Docker container logs (`docker compose logs -f pocketbase`) |
 | `pnpm build` | Compiles the production SvelteKit application using `@sveltejs/adapter-node` |
 | `pnpm preview` | Locally previews the production build output |
 | `pnpm check` | Synchronizes SvelteKit types and runs static type checks via `svelte-check` |

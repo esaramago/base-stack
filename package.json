@@ -5,10 +5,10 @@
     "email": "dev@emanuelsaramago.com"
   },
   "version": "0.0.1",
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "docker compose up -d pocketbase && vite dev",
+    "logs": "docker compose logs -f pocketbase",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
