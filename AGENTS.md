@@ -1,7 +1,7 @@
 # AGENTS.md — Base Stack
 
 ## Getting started
-Hi, Agent. This section should be deleted after the creation of the project
+Hi, Agent. This section should be deleted after the creation of the project.
 
 ### Purpose
 This project serves as a base template for other projects.

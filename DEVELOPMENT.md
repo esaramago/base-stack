@@ -32,10 +32,8 @@ cp .env.example .env
 
 | Variable | Default (Local) | Production (Coolify) | Description |
 | :--- | :--- | :--- | :--- |
-| `PORT` | `3000` | `3000` | SvelteKit production server port |
 | `POCKETBASE_PORT` | `8090` | `8090` | Host port mapped to the PocketBase container |
-| `POCKETBASE_URL` | `http://pocketbase:8090` | `http://pocketbase:8090` | Internal server-to-server URL used by SvelteKit SSR (`hooks.server.ts`) |
-| `VITE_POCKETBASE_URL` | `http://localhost:8090` | `https://api.yourdomain.com` | Public URL used by the client-side browser to contact PocketBase |
+| `VITE_POCKETBASE_URL` | `http://localhost:8090` | `https://pb.yourdomain.com` | Public URL used by the client browser to contact PocketBase |
 
 ### 3. Start the Development Environment
 
@@ -148,15 +146,15 @@ When deploying to Coolify:
 1. **Application Type:** Select **Docker Compose** (pointing to `docker-compose.yml`) or deploy the SvelteKit app via **Dockerfile** alongside a standalone PocketBase service.
 2. **Persistent Storage:** Ensure the volume `pb_data` is mounted to `/pb_data` in the PocketBase container so database records and uploaded files persist across redeployments.
 3. **Environment Variables:** Set production values in Coolify:
-   - `PORT`: `3000`
-   - `POCKETBASE_URL`: Internal network URL (e.g., `http://pocketbase:8090`)
    - `VITE_POCKETBASE_URL`: Public domain URL (e.g., `https://pb.yourdomain.com`)
+   - `PORT`: (Optional, defaults to `3000`)
+   - `POCKETBASE_URL`: (Optional, defaults to `http://pocketbase:8090` in `docker-compose.yml`)
 
 ---
 
 ## 🔧 Troubleshooting & Tips
 
-- **PocketBase Port Conflict:** If port `8090` is already in use by another service on your machine, adjust `POCKETBASE_PORT` in your `.env` file (e.g., `POCKETBASE_PORT=8091`).
+- **PocketBase Port Conflict:** If port `8090` is already in use on your machine, change `POCKETBASE_PORT` and `VITE_POCKETBASE_URL` in `.env` (e.g. `POCKETBASE_PORT=8091` and `VITE_POCKETBASE_URL=http://localhost:8091`).
 - **Stopping Background PocketBase:** If you want to stop the local PocketBase service after development:
   ```bash
   docker compose stop pocketbase

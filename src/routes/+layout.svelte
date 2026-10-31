@@ -12,6 +12,10 @@
   let { children } = $props()
 </script>
 
+<svelte:head>
+  <title>Base Stack</title>
+</svelte:head>
+
 <Grid direction="column" gap="2xl">
   <Header />
   <main class="l-container">

@@ -11,6 +11,8 @@ COPY package.json pnpm-lock.yaml* .npmrc* pnpm-workspace.yaml* ./
 RUN pnpm install --frozen-lockfile || pnpm install
 
 COPY . .
+ARG VITE_POCKETBASE_URL
+ENV VITE_POCKETBASE_URL=$VITE_POCKETBASE_URL
 RUN pnpm build
 RUN pnpm prune --prod
 
