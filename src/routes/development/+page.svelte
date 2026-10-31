@@ -277,9 +277,9 @@ docker compose down`
         <li><strong>Persistent Storage:</strong> Ensure the volume <code>pb_data</code> is mounted to <code>/pb_data</code> in the PocketBase container so database records and uploaded files persist across redeployments.</li>
         <li><strong>Environment Variables:</strong> Set production values in Coolify:
           <ul>
-            <li><code>PORT</code>: <code>3000</code></li>
-            <li><code>POCKETBASE_URL</code>: Internal network URL (e.g., <code>http://pocketbase:8090</code>)</li>
             <li><code>VITE_POCKETBASE_URL</code>: Public domain URL (e.g., <code>https://pb.yourdomain.com</code>)</li>
+            <li><code>PORT</code>: (Optional, defaults to <code>3000</code>)</li>
+            <li><code>POCKETBASE_URL</code>: (Optional, defaults to <code>http://pocketbase:8090</code> in <code>docker-compose.yml</code>)</li>
           </ul>
         </li>
       </ol>
@@ -296,7 +296,7 @@ docker compose down`
     <ul>
       <li>
         <Grid direction="column" gap="xs">
-          <span><strong>PocketBase Port Conflict:</strong> If port <code>8090</code> is already in use by another service on your machine, adjust <code>POCKETBASE_PORT</code> and <code>VITE_POCKETBASE_URL</code> in your <code>.env</code> file (e.g. <code>POCKETBASE_PORT=8091</code>).</span>
+          <span><strong>PocketBase Port Conflict:</strong> If port <code>8090</code> is already in use on your machine, change <code>POCKETBASE_PORT</code> and <code>VITE_POCKETBASE_URL</code> in <code>.env</code> (e.g. <code>POCKETBASE_PORT=8091</code> and <code>VITE_POCKETBASE_URL=http://localhost:8091</code>).</span>
         </Grid>
       </li>
       <li>
