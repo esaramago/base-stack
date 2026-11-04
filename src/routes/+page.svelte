@@ -1,10 +1,11 @@
 <script lang="ts">
   import Grid from '@/components/Grid.svelte'
+  import HeadMeta from '@/components/HeadMeta.svelte'
 </script>
 
-<svelte:head>
-  <title>Base Stack</title>
-</svelte:head>
+<HeadMeta
+  description="Modern, opinionated starter template for rapid development with SvelteKit, PocketBase, Docker, and WebAwesome, ready for production on Coolify."
+/>
 
 <Grid direction="column" gap="xl">
   <Grid direction="column">

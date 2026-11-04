@@ -1,6 +1,7 @@
 <script lang="ts">
   import Grid from '@/components/Grid.svelte'
   import CodeBlock from '@/components/CodeBlock.svelte'
+  import HeadMeta from '@/components/HeadMeta.svelte'
   import '@awesome.me/webawesome/dist/components/callout/callout.js'
 
   // Code snippets displayed on the page
@@ -47,9 +48,10 @@ docker compose down`
   const pnpmCheckSnippet = 'pnpm check'
 </script>
 
-<svelte:head>
-  <title>Development</title>
-</svelte:head>
+<HeadMeta
+  title="Development"
+  description="Development guide and documentation for Base Stack."
+/>
 
 <Grid direction="column" gap="xl">
   <!-- Top Navigation -->
