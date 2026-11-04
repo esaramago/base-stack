@@ -27,7 +27,7 @@
   )
 
   const baseOrigin = $derived(
-    (env.PUBLIC_BASE_URL || env.PUBLIC_CANONICAL_ORIGIN || page.url.origin).replace(/\/$/, '')
+    (env.PUBLIC_BASE_URL || page.url.origin).replace(/\/$/, '')
   )
   const resolvedCanonical = $derived(
     canonicalUrl || `${baseOrigin}${page.url.pathname}`
