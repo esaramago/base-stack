@@ -281,7 +281,6 @@ docker compose down`
           <ul>
             <li><code>VITE_POCKETBASE_URL</code>: Public domain URL (e.g., <code>https://pb.yourdomain.com</code>)</li>
             <li><code>PORT</code>: (Optional, defaults to <code>3000</code>)</li>
-            <li><code>POCKETBASE_URL</code>: (Optional, defaults to <code>http://pocketbase:8090</code> in <code>docker-compose.yml</code>)</li>
           </ul>
         </li>
       </ol>

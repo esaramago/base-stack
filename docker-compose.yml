@@ -11,7 +11,6 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - POCKETBASE_URL=http://pocketbase:8090
       - VITE_POCKETBASE_URL=${VITE_POCKETBASE_URL:-http://localhost:8090}
     depends_on:
       - pocketbase

@@ -149,7 +149,6 @@ When deploying to Coolify:
 3. **Environment Variables:** Set production values in Coolify:
    - `VITE_POCKETBASE_URL`: Public domain URL (e.g., `https://pb.yourdomain.com`)
    - `PORT`: (Optional, defaults to `3000`)
-   - `POCKETBASE_URL`: (Optional, defaults to `http://pocketbase:8090` in `docker-compose.yml`)
 
 ---
 
