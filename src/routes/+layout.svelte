@@ -9,17 +9,17 @@
   import Footer from '@/components/Footer.svelte'
   import Grid from '@/components/Grid.svelte'
   import { dev } from '$app/environment'
-  import { PUBLIC_UMAMI_URL, PUBLIC_UMAMI_WEBSITE_ID } from '$env/static/public'
+  import { UMAMI_URL, UMAMI_WEBSITE_ID } from '@/lib/config'
 
   let { children } = $props()
 </script>
 
 <svelte:head>
-  {#if !dev && PUBLIC_UMAMI_URL && PUBLIC_UMAMI_WEBSITE_ID}
+  {#if !dev && UMAMI_URL && UMAMI_WEBSITE_ID}
     <script
       defer
-      src="{PUBLIC_UMAMI_URL}/script.js"
-      data-website-id={PUBLIC_UMAMI_WEBSITE_ID}
+      src="{UMAMI_URL}/script.js"
+      data-website-id={UMAMI_WEBSITE_ID}
     ></script>
   {/if}
 </svelte:head>

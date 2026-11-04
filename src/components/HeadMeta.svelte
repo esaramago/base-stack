@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state'
   import { env } from '$env/dynamic/public'
-  import { PUBLIC_WEBSITE_TITLE } from '$env/static/public'
+  import { WEBSITE_TITLE } from '@/lib/config'
 
   interface Props {
     title?: string
@@ -21,7 +21,7 @@
     locale = 'en'
   }: Props = $props()
   
-  const siteName = PUBLIC_WEBSITE_TITLE || 'Olá!'
+  const siteName = WEBSITE_TITLE || 'Olá!'
   const fullTitle = $derived(
     title ? (title === siteName ? title : `${title} · ${siteName}`) : siteName
   )
