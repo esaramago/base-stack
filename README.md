@@ -50,6 +50,34 @@ Looking to run this project locally, understand the coding conventions, or prepa
 
 ---
 
+## 🔐 Creating the First Superuser
+
+To manage collections, auth providers, and database records in PocketBase, you need a **superuser** account.
+
+### 💻 Local Development
+
+- **Via Web UI (Recommended):**
+  Open [http://localhost:8090/_/](http://localhost:8090/_/) in your browser. On first launch with an empty database, PocketBase prompts you with an initial setup form to create the first superuser.
+
+- **Via CLI (Docker):**
+  Execute the command inside the running PocketBase container:
+  ```bash
+  docker compose exec pocketbase pocketbase superuser create admin@example.com your-password
+  ```
+
+### 🌐 Production (Coolify / Remote Server)
+
+- **In Coolify:** Go to your PocketBase service &rarr; open the **Terminal** tab, and run:
+  ```bash
+  pocketbase superuser create admin@example.com your-password
+  ```
+- **Via SSH on the server:**
+  ```bash
+  docker exec -it <pocketbase_container_name> pocketbase superuser create admin@example.com your-password
+  ```
+
+---
+
 ## 📄 License
 
 Distributed under the [MIT](LICENSE) License.
