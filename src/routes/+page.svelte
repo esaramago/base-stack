@@ -1,6 +1,56 @@
 <script lang="ts">
   import Grid from '@/components/Grid.svelte'
   import HeadMeta from '@/components/HeadMeta.svelte'
+
+  interface TechItem {
+    name: string
+    description: string
+    icon: string
+    iconVariant?: 'solid'
+    iconFamily?: 'brands'
+  }
+
+  const techStack: TechItem[] = [
+    {
+      name: 'SvelteKit',
+      description: 'Modern framework for fast, reactive web applications with SSR and API routes.',
+      icon: 'bolt',
+      iconVariant: 'solid'
+    },
+    {
+      name: 'PocketBase',
+      description: 'Complete open-source backend with SQLite database, authentication, and realtime subscriptions.',
+      icon: 'database',
+      iconVariant: 'solid'
+    },
+    {
+      name: 'WebAwesome',
+      description: 'Customizable, accessible UI components built on Web Components.',
+      icon: 'palette',
+      iconVariant: 'solid'
+    },
+    {
+      name: 'Docker & Coolify',
+      description: 'Production containerization with multi-stage Dockerfile and seamless Coolify deployment.',
+      icon: 'docker',
+      iconFamily: 'brands'
+    },
+    {
+      name: 'Prettier',
+      description: 'Code formatting powered by Prettier.',
+      icon: 'code'
+    },
+    {
+      name: 'Agents.md',
+      description: 'Documentation and instructions for agentic pair programming workflows.',
+      icon: 'robot'
+    },
+    {
+      name: 'Grid component',
+      description: 'Reusable grid component for flexible, clean layout structuring.',
+      icon: 'table-cells-large'
+    }
+  ]
 </script>
 
 <HeadMeta
@@ -36,75 +86,17 @@
     <h2>Tech Stack</h2>
 
     <Grid wrap={true} break="small">
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="bolt" variant="solid"></wa-icon>
-            <strong>SvelteKit</strong>
+      {#each techStack as item (item.name)}
+        <wa-card>
+          <Grid direction="column" gap="s">
+            <Grid align="center" gap="s">
+              <wa-icon name={item.icon} variant={item.iconVariant} family={item.iconFamily}></wa-icon>
+              <strong>{item.name}</strong>
+            </Grid>
+            <p>{item.description}</p>
           </Grid>
-          <p>Modern framework for fast, reactive web applications with SSR and API routes.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="database" variant="solid"></wa-icon>
-            <strong>PocketBase</strong>
-          </Grid>
-          <p>Complete open-source backend with SQLite database, authentication, and realtime subscriptions.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="palette" variant="solid"></wa-icon>
-            <strong>WebAwesome</strong>
-          </Grid>
-          <p>Customizable, accessible UI components built on Web Components.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="docker" family="brands"></wa-icon>
-            <strong>Docker & Coolify</strong>
-          </Grid>
-          <p>Production containerization with multi-stage Dockerfile and seamless Coolify deployment.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="code"></wa-icon>
-            <strong>Prettier</strong>
-          </Grid>
-          <p>Code formatting powered by Prettier.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="robot"></wa-icon>
-            <strong>Agents.md</strong>
-          </Grid>
-          <p>Documentation and instructions for agentic pair programming workflows.</p>
-        </Grid>
-      </wa-card>
-
-      <wa-card>
-        <Grid direction="column" gap="s">
-          <Grid align="center" gap="s">
-            <wa-icon name="robot"></wa-icon>
-            <strong>Grid component</strong>
-          </Grid>
-          <p>Reusable grid component for flexible, clean layout structuring.</p>
-        </Grid>
-      </wa-card>
+        </wa-card>
+      {/each}
     </Grid>
   </Grid>
 </Grid>

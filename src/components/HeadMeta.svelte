@@ -21,7 +21,7 @@
     locale = 'en'
   }: Props = $props()
   
-  const siteName = WEBSITE_TITLE || 'Olá!'
+  const siteName = WEBSITE_TITLE || 'Base Stack'
   const fullTitle = $derived(
     title ? (title === siteName ? title : `${title} · ${siteName}`) : siteName
   )
@@ -31,6 +31,13 @@
   )
   const resolvedCanonical = $derived(
     canonicalUrl || `${baseOrigin}${page.url.pathname}`
+  )
+  const resolvedImage = $derived(
+    image
+      ? image.startsWith('http://') || image.startsWith('https://')
+        ? image
+        : `${baseOrigin}${image.startsWith('/') ? '' : '/'}${image}`
+      : ''
   )
 </script>
 
@@ -58,8 +65,8 @@
     <meta property="og:url" content={resolvedCanonical} />
   {/if}
 
-  {#if image}
-    <meta property="og:image" content={image} />
+  {#if resolvedImage}
+    <meta property="og:image" content={resolvedImage} />
     <meta property="og:image:alt" content={fullTitle} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />

@@ -1,29 +1,43 @@
 <script lang="ts">
+  import type { Snippet } from 'svelte'
   import type { Spacing, Break, Justify, Align, Direction } from '@/types/grid'
 
-  export let tag: keyof HTMLElementTagNameMap = 'div'
-  export let direction: Direction | undefined = undefined
-  export let align: Align | undefined = undefined
-  export let justify: Justify | undefined = undefined
-  export let gap: Spacing | undefined = undefined
-  export let wrap: boolean | undefined = undefined
-  export let fullWidth: boolean = false
+  interface Props {
+    tag?: keyof HTMLElementTagNameMap
+    direction?: Direction
+    align?: Align
+    justify?: Justify
+    gap?: Spacing
+    wrap?: boolean
+    fullWidth?: boolean
+    break?: Break
+    children?: Snippet
+  }
 
-  // 'break' is a reserved keyword in JavaScript/TypeScript.
-  // We create an internal variable and export it with the name parent components will use.
-  let breakProp: Break | undefined = undefined
-  export { breakProp as break }
+  let {
+    tag = 'div',
+    direction,
+    align,
+    justify,
+    gap,
+    wrap,
+    fullWidth = false,
+    break: breakProp,
+    children
+  }: Props = $props()
 
-  // Reactive creation of the inline styles string (equivalent to Vue's computed)
-  $: gridStyle = [
-    gap ? `--gap: var(--wa-space-${gap})` : '',
-    align ? `--align: ${align}` : '',
-    justify ? `--justify: ${justify}` : '',
-    wrap !== undefined ? `--wrap: ${wrap ? 'wrap' : 'nowrap'}` : '',
-    direction ? `--direction: ${direction}` : '',
-  ]
-    .filter(Boolean)
-    .join(';')
+  // Reactive creation of the inline styles string
+  const gridStyle = $derived(
+    [
+      gap ? `--gap: var(--wa-space-${gap})` : '',
+      align ? `--align: ${align}` : '',
+      justify ? `--justify: ${justify}` : '',
+      wrap !== undefined ? `--wrap: ${wrap ? 'wrap' : 'nowrap'}` : '',
+      direction ? `--direction: ${direction}` : ''
+    ]
+      .filter(Boolean)
+      .join(';')
+  )
 </script>
 
 <svelte:element
@@ -32,7 +46,7 @@
   class:l-grid--full-width={fullWidth}
   style={gridStyle || undefined}
 >
-  <slot />
+  {@render children?.()}
 </svelte:element>
 
 <style>

@@ -89,4 +89,22 @@ describe('hooks.server handle', () => {
     expect(mockAuthRefresh).toHaveBeenCalledOnce()
     expect(mockClear).toHaveBeenCalledOnce()
   })
+
+  it('appends auth cookie without overwriting existing set-cookie headers', async () => {
+    const event = {
+      locals: {} as App.Locals,
+      request: new Request('http://localhost/')
+    } as Parameters<typeof handle>[0]['event']
+
+    const resolve = vi.fn(async () => {
+      const res = new Response('ok')
+      res.headers.set('set-cookie', 'session=123; Path=/')
+      return res
+    })
+
+    const response = await handle({ event, resolve })
+
+    const setCookies = response.headers.getSetCookie()
+    expect(setCookies).toEqual(['session=123; Path=/', 'pb_auth=mock-cookie'])
+  })
 })

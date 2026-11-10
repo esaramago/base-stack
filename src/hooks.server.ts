@@ -1,7 +1,10 @@
 import PocketBase from 'pocketbase'
 import type { Handle } from '@sveltejs/kit'
 
-const POCKETBASE_URL = process.env.VITE_POCKETBASE_URL || 'http://127.0.0.1:8090'
+const POCKETBASE_URL =
+	process.env.POCKETBASE_INTERNAL_URL ||
+	process.env.VITE_POCKETBASE_URL ||
+	'http://127.0.0.1:8090'
 
 export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.pb = new PocketBase(POCKETBASE_URL)
@@ -23,8 +26,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	const response = await resolve(event)
 
-	// Update auth cookie in response
-	response.headers.set(
+	// Append auth cookie in response without overwriting other set-cookie headers
+	response.headers.append(
 		'set-cookie',
 		event.locals.pb.authStore.exportToCookie({
 			httpOnly: false,
