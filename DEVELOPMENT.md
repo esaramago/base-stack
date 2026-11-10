@@ -115,6 +115,7 @@ To maintain code quality and consistency across projects, adhere to the followin
   {/if}
   ```
 - **Server-Side (SSR):** Handled automatically in `src/hooks.server.ts`. It loads auth cookies from incoming requests, checks token validity, refreshes sessions when possible, and passes `event.locals.pb` and `event.locals.user` to SvelteKit endpoints and load functions.
+- **Database Migrations:** Configured via `--migrationsDir=/pb_migrations` and `--automigrate=true` in `docker-compose.yml`. Schema changes made in the PocketBase Admin UI generate JavaScript migration files in `./pb_migrations/`. When committed to git and deployed, PocketBase automatically runs any pending migrations on startup.
 
 ---
 

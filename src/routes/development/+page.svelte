@@ -247,6 +247,9 @@ docker compose down`
         <li>
           <strong>Server-Side (SSR):</strong> Handled automatically in <code>src/hooks.server.ts</code>. It loads auth cookies from incoming requests, checks token validity, refreshes sessions when possible, and passes <code>event.locals.pb</code> and <code>event.locals.user</code> to SvelteKit endpoints and load functions.
         </li>
+        <li>
+          <strong>Database Migrations:</strong> Configured via <code>--migrationsDir=/pb_migrations</code> and <code>--automigrate=true</code> in <code>docker-compose.yml</code>. Schema changes made in the PocketBase Admin UI generate JavaScript migration files in <code>./pb_migrations/</code>. When committed to git and deployed, PocketBase automatically runs any pending migrations on startup.
+        </li>
       </ul>
     </Grid>
   </Grid>
